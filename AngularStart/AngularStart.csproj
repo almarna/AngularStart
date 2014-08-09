@@ -82,6 +82,11 @@
     <Content Include="Pages\Home\HomeView.html" />
     <Content Include="Pages\About\AboutView.html" />
     <Content Include="References.html" />
+    <Content Include="TrivialSamples\Demo1.html" />
+    <Content Include="TrivialSamples\Demo2.html" />
+    <Content Include="TrivialSamples\Demo2Controller.js" />
+    <Content Include="TrivialSamples\Demo3.html" />
+    <Content Include="TrivialSamples\Demo3Controller.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

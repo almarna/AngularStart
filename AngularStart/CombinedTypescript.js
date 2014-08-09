@@ -1,4 +1,4 @@
-﻿var Configuration;
+var Configuration;
 (function (Configuration) {
     var IoC = (function () {
         function IoC() {
@@ -61,39 +61,16 @@ var Filters = (function () {
 })();
 var Pages;
 (function (Pages) {
-    var AboutController = (function () {
-        function AboutController($scope, dataContainer) {
+    var UiBootstrapController = (function () {
+        function UiBootstrapController($scope, $location, dataContainer) {
             this.$scope = $scope;
+            this.$location = $location;
             this.dataContainer = dataContainer;
             $scope.menuItems = dataContainer.GetMenu();
         }
-        return AboutController;
+        return UiBootstrapController;
     })();
-    Pages.AboutController = AboutController;
-})(Pages || (Pages = {}));
-var Pages;
-(function (Pages) {
-    var HomeController = (function () {
-        function HomeController($scope, dataContainer) {
-            this.$scope = $scope;
-            this.dataContainer = dataContainer;
-            $scope.menuItems = dataContainer.GetMenu();
-        }
-        return HomeController;
-    })();
-    Pages.HomeController = HomeController;
-})(Pages || (Pages = {}));
-var Pages;
-(function (Pages) {
-    var LinksController = (function () {
-        function LinksController($scope, dataContainer) {
-            this.$scope = $scope;
-            this.dataContainer = dataContainer;
-            $scope.menuItems = dataContainer.GetMenu();
-        }
-        return LinksController;
-    })();
-    Pages.LinksController = LinksController;
+    Pages.UiBootstrapController = UiBootstrapController;
 })(Pages || (Pages = {}));
 var Pages;
 (function (Pages) {
@@ -144,16 +121,39 @@ var Pages;
 })(Pages || (Pages = {}));
 var Pages;
 (function (Pages) {
-    var UiBootstrapController = (function () {
-        function UiBootstrapController($scope, $location, dataContainer) {
+    var LinksController = (function () {
+        function LinksController($scope, dataContainer) {
             this.$scope = $scope;
-            this.$location = $location;
             this.dataContainer = dataContainer;
             $scope.menuItems = dataContainer.GetMenu();
         }
-        return UiBootstrapController;
+        return LinksController;
     })();
-    Pages.UiBootstrapController = UiBootstrapController;
+    Pages.LinksController = LinksController;
+})(Pages || (Pages = {}));
+var Pages;
+(function (Pages) {
+    var HomeController = (function () {
+        function HomeController($scope, dataContainer) {
+            this.$scope = $scope;
+            this.dataContainer = dataContainer;
+            $scope.menuItems = dataContainer.GetMenu();
+        }
+        return HomeController;
+    })();
+    Pages.HomeController = HomeController;
+})(Pages || (Pages = {}));
+var Pages;
+(function (Pages) {
+    var AboutController = (function () {
+        function AboutController($scope, dataContainer) {
+            this.$scope = $scope;
+            this.dataContainer = dataContainer;
+            $scope.menuItems = dataContainer.GetMenu();
+        }
+        return AboutController;
+    })();
+    Pages.AboutController = AboutController;
 })(Pages || (Pages = {}));
 var Services;
 (function (Services) {
