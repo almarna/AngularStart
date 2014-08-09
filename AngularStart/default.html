@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html ng-app='MainApp' xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>AngularJs-Demo</title>
+    
+        <link rel="stylesheet" href="Framework/AngularUi-0.11.0/bootstrap.-3.2.0.min.css">
+        <link rel="stylesheet" href="css/custom.css">
+
+
+        <script src="Framework/AngularJs-1.2.20/angular.min.js"></script>
+        <script src="Framework/AngularJs-1.2.20/angular-route.min.js"></script>
+        <script src="Framework/AngularUi-0.11.0/ui-bootstrap-tpls.min.js"></script>
+        <script src="CombinedTypescript.js"></script>
+        <script language="javascript">
+            Configuration.IoC.SetupMappings('MainApp');
+        </script>
+    </head>
+    <body>
+        <div ng-view></div>
+    </body>
+</html>

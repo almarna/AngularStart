@@ -1,0 +1,28 @@
+﻿<menu items="menuItems" selected-item="3" title="TS & Angulardemo"></menu>
+<div class="container">
+    <hr />
+    <h2>Ui Bootstrap</h2>
+    <p>Bootstrap components written in pure AngularJS by the AngularUI Team</p>
+    <p>The Ui Bootstrap has many useful controls that complement the native HTML controls</p>
+    <p>The samples below are just some simple controls. There are lot more to find at <a href="http://angular-ui.github.io/bootstrap">Ui Bootstrap page</a></p>
+    <hr />
+        <div class="btn-group" dropdown is-open="status.isopen">
+        <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
+            Button dropdown <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+        </ul>
+    </div>
+    <hr/>
+    <button popover="Info" popover-title="Title" class="btn btn-default">Popover</button>
+    <hr/>
+    <tabset>
+        <tab heading="Main tab">Some content</tab>
+        <tab heading="Another tab">Some other content</tab>
+        <tab heading="Last tab">The last content</tab>
+    </tabset>
+    <hr/>
+</div>

@@ -1,0 +1,30 @@
+﻿<menu items="menuItems" selected-item="2" title="TS & Angulardemo"></menu>
+<div class="container">
+    <div>
+        <hr />
+        <h2>Filter</h2>
+        <p>A simple filter to display negative or positive numbers and display nothing if 0 or NaN</p>
+        <p>Enter values: 
+            <input type="text" ng-model="first" size="3"/> 
+            <input type="text" ng-model="second" size="3"/>
+            Difference: [{{ second - first | diff }}]</p>
+        <hr/>
+        <h2>Fetch server data</h2>
+        <input type="button" value="Get" ng-click="getData()" />
+        <input type="button" value="Get with error" ng-click="getData2()" />
+        <br/><br />
+        
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            <tr ng-repeat="data in serverData | orderBy:'-MeasureDate' ">
+                <td>{{data.id}}</td>
+                <td>{{data.name}}</td>
+            </tr>
+        </table>
+        Message: [{{message}}]
+        <hr />
+    </div>
+</div>

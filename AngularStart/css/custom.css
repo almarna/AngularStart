@@ -1,0 +1,15 @@
+﻿/* AngularUi adjustments */
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+/* Custom */
+body {
+    padding-top: 50px;
+}
+.normal-text {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.left-text {
+  padding: 40px 15px;
+  text-align: left;
+}
