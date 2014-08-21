@@ -59,8 +59,21 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DummyData\data.txt" />
+    <Content Include="Api\data.txt" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\AngularStart.pubxml" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -71,47 +84,51 @@
   <ItemGroup>
     <Content Include="css\custom.css" />
     <Content Include="default.html" />
-    <Content Include="Directives\MenuDirective.html" />
-    <Content Include="Framework\AngularUi-0.11.0\bootstrap.-3.2.0.min.css" />
-    <Content Include="Framework\AngularUi-0.11.0\ui-bootstrap-tpls.min.js" />
-    <Content Include="Framework\AngularJs-1.2.20\angular-route.min.js" />
-    <Content Include="Framework\AngularJs-1.2.20\angular.min.js" />
-    <Content Include="Pages\UiBootstrap\UiBootstrapView.html" />
-    <Content Include="Pages\Samples\SamplesView.html" />
-    <Content Include="Pages\Links\LinksView.html" />
-    <Content Include="Pages\Home\HomeView.html" />
-    <Content Include="Pages\About\AboutView.html" />
-    <Content Include="References.html" />
+    <Content Include="App\Directives\MenuDirective.html" />
+    <Content Include="App\Pages\UiBootstrap\UiBootstrapView.html" />
+    <Content Include="App\Pages\Samples\SamplesView.html" />
+    <Content Include="App\Pages\Links\LinksView.html" />
+    <Content Include="App\Pages\Home\HomeView.html" />
+    <Content Include="App\Pages\About\AboutView.html" />
+    <Content Include="Scripts\ie10-viewport-bug-workaround.js" />
     <Content Include="TrivialSamples\Demo1.html" />
     <Content Include="TrivialSamples\Demo2.html" />
     <Content Include="TrivialSamples\Demo2Controller.js" />
     <Content Include="TrivialSamples\Demo3.html" />
     <Content Include="TrivialSamples\Demo3Controller.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <TypeScriptCompile Include="Configuration\IoC.ts" />
-    <TypeScriptCompile Include="Directives\MenuDirective.ts" />
-    <TypeScriptCompile Include="Filters\Filters.ts" />
-    <TypeScriptCompile Include="Pages\UiBootstrap\IUiBootstrapViewModel.ts" />
-    <TypeScriptCompile Include="Pages\UiBootstrap\UiBootstrapController.ts" />
-    <TypeScriptCompile Include="Pages\Samples\SamplesController.ts" />
-    <TypeScriptCompile Include="Pages\Samples\ISamplesViewModel.ts" />
-    <TypeScriptCompile Include="Pages\Links\ILinksViewModel.ts" />
-    <TypeScriptCompile Include="Pages\Links\LinksController.ts" />
-    <TypeScriptCompile Include="Pages\Home\IHomeViewModel.ts" />
-    <TypeScriptCompile Include="Pages\Home\HomeController.ts" />
-    <TypeScriptCompile Include="Pages\About\AboutController.ts" />
-    <TypeScriptCompile Include="Pages\About\IAboutViewModel.ts" />
-    <TypeScriptCompile Include="Services\DataContainer.ts" />
-    <TypeScriptCompile Include="Typings\AngularJs\angular-route.d.ts" />
-    <TypeScriptCompile Include="Typings\AngularJs\angular.d.ts" />
-    <TypeScriptCompile Include="Typings\Jquery\jquery.d.ts" />
-    <TypeScriptCompile Include="Typings\AngularUi\angular-ui-bootstrap.d.ts" />
+    <TypeScriptCompile Include="App\Configuration\IoC.ts" />
+    <TypeScriptCompile Include="App\Directives\MenuDirective.ts" />
+    <TypeScriptCompile Include="App\Filters\Filters.ts" />
+    <TypeScriptCompile Include="App\Pages\UiBootstrap\IUiBootstrapViewModel.ts" />
+    <TypeScriptCompile Include="App\Pages\UiBootstrap\UiBootstrapController.ts" />
+    <TypeScriptCompile Include="App\Pages\Samples\SamplesController.ts" />
+    <TypeScriptCompile Include="App\Pages\Samples\ISamplesViewModel.ts" />
+    <TypeScriptCompile Include="App\Pages\Links\ILinksViewModel.ts" />
+    <TypeScriptCompile Include="App\Pages\Links\LinksController.ts" />
+    <TypeScriptCompile Include="App\Pages\Home\IHomeViewModel.ts" />
+    <TypeScriptCompile Include="App\Pages\Home\HomeController.ts" />
+    <TypeScriptCompile Include="App\Pages\About\AboutController.ts" />
+    <TypeScriptCompile Include="App\Pages\About\IAboutViewModel.ts" />
+    <TypeScriptCompile Include="App\Services\DataContainer.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-resource.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-route.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-scenario.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -120,6 +137,10 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptOutFile>CombinedTypescript.js</TypeScriptOutFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptOutFile>CombinedTypescript.js</TypeScriptOutFile>
+    <TypeScriptRemoveComments>True</TypeScriptRemoveComments>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

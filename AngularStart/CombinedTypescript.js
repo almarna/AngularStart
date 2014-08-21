@@ -1,4 +1,4 @@
-var Configuration;
+﻿var Configuration;
 (function (Configuration) {
     var IoC = (function () {
         function IoC() {
@@ -16,14 +16,10 @@ var Configuration;
             application.filter('diff', function () {
                 return Filters.Difference;
             });
-            //            application.config(["$httpProvider", ($httpProvider) => { return new JsonExtender($httpProvider); }]);
-            //            application.directive('jqPlot', [() => new jqPlotDirective()]);
-            //            application.directive('saveCookie', (storage) => new SaveCookieDirective(storage));
-            //            application.constant('_', _);
         };
 
         IoC.mapRoutes = function ($routeProvider) {
-            $routeProvider.when("/home", { controller: "Pages.HomeController", templateUrl: "Pages/Home/HomeView.html" }).when("/samples", { controller: "Pages.SamplesController", templateUrl: "Pages/Samples/SamplesView.html" }).when("/ui", { controller: "Pages.UiBootstrapController", templateUrl: "Pages/UiBootstrap/UiBootstrapView.html" }).when("/links", { controller: "Pages.LinksController", templateUrl: "Pages/Links/LinksView.html" }).when("/about", { controller: "Pages.AboutController", templateUrl: "Pages/About/AboutView.html" }).otherwise({ redirectTo: "/home" });
+            $routeProvider.when("/home", { controller: "Pages.HomeController", templateUrl: "App/Pages/Home/HomeView.html" }).when("/samples", { controller: "Pages.SamplesController", templateUrl: "App/Pages/Samples/SamplesView.html" }).when("/ui", { controller: "Pages.UiBootstrapController", templateUrl: "App/Pages/UiBootstrap/UiBootstrapView.html" }).when("/links", { controller: "Pages.LinksController", templateUrl: "App/Pages/Links/LinksView.html" }).when("/about", { controller: "Pages.AboutController", templateUrl: "App/Pages/About/AboutView.html" }).otherwise({ redirectTo: "/home" });
         };
         return IoC;
     })();
@@ -35,8 +31,8 @@ var Directives;
         function MenuDirective() {
             this.restrict = 'E';
             this.replace = true;
-            this.scope = { selectedItem: '@selectedItem', title: '@title', items: '=' };
-            this.templateUrl = 'Directives/MenuDirective.html';
+            this.scope = { selectedItem: '@', title: '@', items: '=' };
+            this.templateUrl = 'App/Directives/MenuDirective.html';
         }
         return MenuDirective;
     })();
@@ -61,16 +57,39 @@ var Filters = (function () {
 })();
 var Pages;
 (function (Pages) {
-    var UiBootstrapController = (function () {
-        function UiBootstrapController($scope, $location, dataContainer) {
+    var AboutController = (function () {
+        function AboutController($scope, dataContainer) {
             this.$scope = $scope;
-            this.$location = $location;
             this.dataContainer = dataContainer;
             $scope.menuItems = dataContainer.GetMenu();
         }
-        return UiBootstrapController;
+        return AboutController;
     })();
-    Pages.UiBootstrapController = UiBootstrapController;
+    Pages.AboutController = AboutController;
+})(Pages || (Pages = {}));
+var Pages;
+(function (Pages) {
+    var HomeController = (function () {
+        function HomeController($scope, dataContainer) {
+            this.$scope = $scope;
+            this.dataContainer = dataContainer;
+            $scope.menuItems = dataContainer.GetMenu();
+        }
+        return HomeController;
+    })();
+    Pages.HomeController = HomeController;
+})(Pages || (Pages = {}));
+var Pages;
+(function (Pages) {
+    var LinksController = (function () {
+        function LinksController($scope, dataContainer) {
+            this.$scope = $scope;
+            this.dataContainer = dataContainer;
+            $scope.menuItems = dataContainer.GetMenu();
+        }
+        return LinksController;
+    })();
+    Pages.LinksController = LinksController;
 })(Pages || (Pages = {}));
 var Pages;
 (function (Pages) {
@@ -121,39 +140,16 @@ var Pages;
 })(Pages || (Pages = {}));
 var Pages;
 (function (Pages) {
-    var LinksController = (function () {
-        function LinksController($scope, dataContainer) {
+    var UiBootstrapController = (function () {
+        function UiBootstrapController($scope, $location, dataContainer) {
             this.$scope = $scope;
+            this.$location = $location;
             this.dataContainer = dataContainer;
             $scope.menuItems = dataContainer.GetMenu();
         }
-        return LinksController;
+        return UiBootstrapController;
     })();
-    Pages.LinksController = LinksController;
-})(Pages || (Pages = {}));
-var Pages;
-(function (Pages) {
-    var HomeController = (function () {
-        function HomeController($scope, dataContainer) {
-            this.$scope = $scope;
-            this.dataContainer = dataContainer;
-            $scope.menuItems = dataContainer.GetMenu();
-        }
-        return HomeController;
-    })();
-    Pages.HomeController = HomeController;
-})(Pages || (Pages = {}));
-var Pages;
-(function (Pages) {
-    var AboutController = (function () {
-        function AboutController($scope, dataContainer) {
-            this.$scope = $scope;
-            this.dataContainer = dataContainer;
-            $scope.menuItems = dataContainer.GetMenu();
-        }
-        return AboutController;
-    })();
-    Pages.AboutController = AboutController;
+    Pages.UiBootstrapController = UiBootstrapController;
 })(Pages || (Pages = {}));
 var Services;
 (function (Services) {
@@ -172,13 +168,13 @@ var Services;
         };
 
         DataContainer.prototype.GetServerData = function () {
-            return this.$http.get('DummyData/data.txt').then(function (serverResponse) {
+            return this.$http.get('Api/data.txt').then(function (serverResponse) {
                 return serverResponse.data;
             });
         };
 
         DataContainer.prototype.GetServerDataError = function () {
-            return this.$http.get('DummyData/nonExistant.txt').then(function (serverResponse) {
+            return this.$http.get('Api/nonExistant.txt').then(function (serverResponse) {
                 return serverResponse.data;
             });
         };

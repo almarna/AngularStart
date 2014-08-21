@@ -5,18 +5,30 @@
     <script src="Demo3Controller.js"></script>
     <title>Simple demo 3</title>
 </head>
-<body>
-    <form ng-submit="addContact()" ng-controller="Demo3Controller">
+<body ng-controller="Demo3Controller">
+    <form ng-submit="addContact()">
 
         Enter mailaddress for a new contact: <input type="text" ng-model="newContact" />
         <input type="submit" value="Add" />
-
-        <h2>Contacts</h2>
-
-        <ul>
-            <li ng-repeat="contact in contacts">{{ contact }}</li>
-        </ul>
     </form>
+
+    <form ng-submit="addContactOldStyle()">
+
+        Enter mailaddress for a new contact old style: <input type="text" ng-model="newContact" />
+        <input type="submit" value="Add" />
+    </form>
+
+    <form ng-submit="addContactNoControllerStyle()">
+
+        Enter mailaddress for a new contact no controller style: <input type="text" ng-model="newContact" />
+        <input type="submit" value="Add" />
+    </form>
+        
+    <h2>Contacts</h2>
+    <ul>
+        <li ng-repeat="contact in contacts">{{ contact }}</li>
+    </ul>
+
     <script language="javascript">
         SetupMappings('MainApp');
     </script>
