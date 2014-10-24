@@ -6,7 +6,7 @@ module Services
         {
         }
 
-        public GetMenu(): any
+        public GetMenu(): Contracts.IMenuItem[]
         {
             return [
                 { link: '#/home', text: 'Home' },
@@ -18,12 +18,12 @@ module Services
         }
 
 
-        public GetServerData(): ng.IPromise<any>
+        public GetServerData(): ng.IPromise<Contracts.IFirstName>
         {
             return this.$http.get('Api/data.txt').then((serverResponse) => { return serverResponse.data; });
         }
 
-        public GetServerDataError(): ng.IPromise<any>
+        public GetServerDataError(): ng.IPromise<Contracts.IFirstName>
         {
             return this.$http.get('Api/nonExistant.txt').then((serverResponse) => { return serverResponse.data; });
         }

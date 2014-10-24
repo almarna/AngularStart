@@ -12,15 +12,6 @@ module Configuration
             application.service('dataContainer', Services.DataContainer);
 
             application.filter('diff', () => { return Filters.Difference; });
-
-
-//            application.config(["$httpProvider", ($httpProvider) => { return new JsonExtender($httpProvider); }]);
-
-
-//            application.directive('jqPlot', [() => new jqPlotDirective()]);
-//            application.directive('saveCookie', (storage) => new SaveCookieDirective(storage));
-
-//            application.constant('_', _);
         }
 
         private static mapRoutes($routeProvider: ng.route.IRouteProvider)

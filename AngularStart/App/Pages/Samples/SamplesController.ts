@@ -21,16 +21,18 @@ module Pages
 
         private getServerDataError(): void
         {
-            this.dataContainer.GetServerDataError().then((data) => this.serverDataFetched(data), (errorInfo) => this.serverFail(errorInfo));
+            this.dataContainer.GetServerDataError().then(
+                (data) => this.serverDataFetched(data),
+                (errorInfo: Contracts.IHttpError) => this.serverFail(errorInfo));
         }
 
-        private serverDataFetched(data: any): void
+        private serverDataFetched(data: Contracts.IFirstName): void
         {
             this.$scope.serverData = data;
             this.$scope.message = "DataFetched!";
         }
 
-        private serverFail(errorInfo: any): void
+        private serverFail(errorInfo: Contracts.IHttpError): void
         {
             this.$scope.serverData = null;
             this.$scope.message = "Error " + errorInfo.status + " Message: " + errorInfo.statusText;

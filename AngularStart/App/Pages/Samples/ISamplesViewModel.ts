@@ -2,8 +2,8 @@ module Pages
 {
     export interface ISamplesViewModel extends ng.IScope
     {
-        menuItems: any;
-        serverData: any;
+        menuItems: Contracts.IMenuItem[];
+        serverData: Contracts.IFirstName;
 
         message: string;
 

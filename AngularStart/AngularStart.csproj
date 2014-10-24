@@ -62,6 +62,7 @@
     <Content Include="Api\data.txt" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="packages.config" />
+    <Content Include="Misc\Angular.pptx" />
     <None Include="Properties\PublishProfiles\AngularStart.pubxml" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
@@ -106,6 +107,9 @@
   <ItemGroup />
   <ItemGroup>
     <TypeScriptCompile Include="App\Configuration\IoC.ts" />
+    <TypeScriptCompile Include="App\Contracts\IHttpError.ts" />
+    <TypeScriptCompile Include="App\Contracts\IMenuItem.ts" />
+    <TypeScriptCompile Include="App\Contracts\IFirstName.ts" />
     <TypeScriptCompile Include="App\Directives\MenuDirective.ts" />
     <TypeScriptCompile Include="App\Filters\Filters.ts" />
     <TypeScriptCompile Include="App\Pages\UiBootstrap\IUiBootstrapViewModel.ts" />
