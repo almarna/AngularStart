@@ -7,7 +7,6 @@ module Pages
             private dataContainer: Services.DataContainer
             )
         {
-            $scope.menuItems = dataContainer.GetMenu();
         }
 
     }

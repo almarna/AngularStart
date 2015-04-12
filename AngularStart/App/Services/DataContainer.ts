@@ -6,17 +6,14 @@ module Services
         {
         }
 
-        public GetMenu(): Contracts.IMenuItem[]
+        public GetPersons()
         {
             return [
-                { link: '#/home', text: 'Home' },
-                { link: '#/samples', text: 'Samples' },
-                { link: '#/ui', text: 'Ui Bootstrap' },
-                { link: '#/links', text: 'Links' },
-                { link: '#/about', text: 'About' }
+                { FirstName: 'Willhelm', LastName: 'Tell', Address: 'Hut road 15', Zip: '123 45', City: 'Alpendorf' },
+                { FirstName: 'Cinder', LastName: 'Ella', Address: 'Glass Mountain 42', Zip: '543 21', City: 'FairyTown' },
+                { FirstName: 'Snow', LastName: 'White', Address: 'Castle road 1', Zip: '999 99', City: 'FairyTown' }
             ];
         }
-
 
         public GetServerData(): ng.IPromise<Contracts.IFirstName>
         {

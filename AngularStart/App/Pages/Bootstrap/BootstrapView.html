@@ -1,0 +1,138 @@
+﻿<div class="container">
+    <h1>Bootstrap & Font Awesome</h1>
+    <p>Use the classes built into bootstrap as much as possible and theme the application with less.</p>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3><i class="fa fa-twitter-square text-primary"></i> Bootstrap</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row top-5">
+                <div class="col-sm-3"><h4>Colors</h4></div>
+                <div class="col-sm-9">
+                    <button type="button" class="btn btn-default" data-toggle="dropdown" aria-expanded="false">Default</button>
+                    <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-expanded="false">Primary</button>
+                    <button type="button" class="btn btn-success" data-toggle="dropdown" aria-expanded="false">Success</button>
+                    <button type="button" class="btn btn-info" data-toggle="dropdown" aria-expanded="false">Info</button>
+                    <button type="button" class="btn btn-warning" data-toggle="dropdown" aria-expanded="false">Warning</button>
+                    <button type="button" class="btn btn-danger" data-toggle="dropdown" aria-expanded="false">Danger</button>
+                </div>
+            </div>
+
+            <div class="row top-5">
+                <div class="col-sm-3"><h4>Grid</h4></div>
+                <div class="col-sm-9 show-grid">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
+                        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+                        <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+                        <!-- Optional: clear the XS cols if their content doesn't match in height -->
+                        <div class="clearfix visible-xs-block"></div>
+                        <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row top-5">
+                <div class="col-sm-3"><h4>Headings</h4></div>
+                <div class="col-sm-9">
+                    <h1>h1 Bootstrap heading (36px)</h1>
+                    <h2>h2 Bootstrap heading (30px)</h2>
+                    <h3>h3 Bootstrap heading (24px)</h3>
+                    <h4>h4 Bootstrap heading (18px)</h4>
+                    <h5>h5 Bootstrap heading (14px)</h5>
+                    <h6>h6 Bootstrap heading (12px)</h6>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Panel -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3><i class="fa fa-flag text-primary"></i> Font Awesome</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row top-5">
+                <div class="col-sm-3"><h4>Button with icon</h4></div>
+                <div class="col-sm-4">
+                    <a class="btn btn-danger" href="#">
+                        <i class="fa fa-trash-o fa-lg"></i> Delete
+                    </a>
+                </div>
+            </div>
+
+            <div class="row top-5">
+                <div class="col-sm-3"><h4>Button, with multiline text</h4></div>
+                <div class="col-sm-4">
+                    <a class="btn btn-lg btn-success" href="#">
+                        <i class="fa fa-cloud fa-2x pull-left"></i> Deliver to<br>the cloud
+                    </a>
+                </div>
+            </div>
+
+            <div class="row top-5">
+                <div class="col-sm-3"><h4>Button group</h4></div>
+                <div class="col-sm-4">
+                    <div class="btn-group">
+                        <a class="btn btn-default" href="#"><i class="fa fa-align-left"></i></a>
+                        <a class="btn btn-default" href="#"><i class="fa fa-align-center"></i></a>
+                        <a class="btn btn-default" href="#"><i class="fa fa-align-right"></i></a>
+                        <a class="btn btn-default" href="#"><i class="fa fa-align-justify"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row top-5">
+                <div class="col-sm-3"><h4>Input with addon</h4></div>
+                <div class="col-sm-4">
+                    <div class="input-group margin-bottom-sm">
+                        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                        <input class="form-control" type="text" placeholder="Email address">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                        <input class="form-control" type="password" placeholder="Password">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row top-5">
+                <div class="col-sm-3"><h4>Brand icons</h4></div>
+                <div class="col-sm-4">
+                    <i class="fa fa-facebook-square fa-2x text-info"></i>
+                    <i class="fa fa-android fa-3x text-success"></i>
+                    <i class="fa fa-cc-mastercard fa-4x text-primary"></i>
+                </div>
+            </div>
+
+            <div class="row top-5">
+                <div class="col-sm-3"><h4>Button group (with Angular-UI)</h4></div>
+                <div class="col-sm-4">
+                    <div class="btn-group" dropdown>
+                        <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> User</a>
+                        <a class="btn btn-primary dropdown-toggle" dropdown-toggle>
+                            <span class="fa fa-caret-down"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                            <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+                            <li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class="i"></i> Make admin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row top-5">
+                <div class="col-sm-3"><h4>Spinners (no gif-animation)</h4></div>
+                <div class="col-sm-4">
+                    <div class="btn btn-success "><i class="fa fa-cog fa-spin fa-2x"></i><h5>Please wait!</h5></div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Panel -->
+</div>

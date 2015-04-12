@@ -1,9 +1,7 @@
 function SetupMappings(applicationName) {
     var application = angular.module(applicationName, []);
-
     application.service('dataContainer', DataContainer);
 }
-
 var Demo3Controller = (function () {
     function Demo3Controller($scope, dataContainer) {
         var _this = this;
@@ -13,13 +11,8 @@ var Demo3Controller = (function () {
             $scope.contacts.push(_this.$scope.newContact);
             $scope.newContact = "";
         };
-
         $scope.addContactNoControllerStyle = this.addContactNoControllerStyle;
-
-        $scope.addContact = function () {
-            return _this.addcontactToList();
-        };
-
+        $scope.addContact = function () { return _this.addcontactToList(); };
         $scope.contacts = dataContainer.GetContacts();
     }
     // *********************************************
@@ -32,14 +25,12 @@ var Demo3Controller = (function () {
         this.contacts.push(this.newContact);
         this.newContact = "";
     };
-
     Demo3Controller.prototype.addcontactToList = function () {
         this.$scope.contacts.push(this.$scope.newContact);
         this.$scope.newContact = "";
     };
     return Demo3Controller;
 })();
-
 var DataContainer = (function () {
     function DataContainer() {
     }

@@ -8,7 +8,7 @@ module Pages
             private dataContainer: Services.DataContainer
         )
         {
-            $scope.menuItems = dataContainer.GetMenu();
+            $scope.personInfos = dataContainer.GetPersons();
 
             $scope.getData = () => this.getServerData();
             $scope.getData2 = () => this.getServerDataError();

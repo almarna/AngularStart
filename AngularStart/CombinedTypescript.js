@@ -1,25 +1,25 @@
-﻿var Configuration;
+var Configuration;
 (function (Configuration) {
     var IoC = (function () {
         function IoC() {
         }
         IoC.SetupMappings = function (applicationName) {
             var application = angular.module(applicationName, ['ui.bootstrap', 'ngRoute']);
-
-            application.config(["$routeProvider", this.mapRoutes]);
-
-            application.directive('menu', [function () {
-                    return new Directives.MenuDirective();
-                }]);
+            application.directive('menu', function ($route) { return new Directives.MenuDirective($route); });
+            application.directive('personInfo', function () { return new Directives.PersonInfoDirective(); });
             application.service('dataContainer', Services.DataContainer);
-
             application.filter('diff', function () {
                 return Filters.Difference;
             });
+            application.controller('HomeController', Pages.HomeController);
+            application.controller('SamplesController', Pages.SamplesController);
+            application.controller('UiBootstrapController', Pages.UiBootstrapController);
+            application.controller('BootstrapController', Pages.BootstrapController);
+            application.controller('LinksController', Pages.LinksController);
+            application.config(["$routeProvider", this.mapRoutes]);
         };
-
         IoC.mapRoutes = function ($routeProvider) {
-            $routeProvider.when("/home", { controller: "Pages.HomeController", templateUrl: "App/Pages/Home/HomeView.html" }).when("/samples", { controller: "Pages.SamplesController", templateUrl: "App/Pages/Samples/SamplesView.html" }).when("/ui", { controller: "Pages.UiBootstrapController", templateUrl: "App/Pages/UiBootstrap/UiBootstrapView.html" }).when("/links", { controller: "Pages.LinksController", templateUrl: "App/Pages/Links/LinksView.html" }).when("/about", { controller: "Pages.AboutController", templateUrl: "App/Pages/About/AboutView.html" }).otherwise({ redirectTo: "/home" });
+            $routeProvider.when("/home", { controller: "HomeController", templateUrl: "App/Pages/Home/HomeView.html", name: "Info" }).when("/samples", { controller: "SamplesController", templateUrl: "App/Pages/Samples/SamplesView.html", name: "Samples" }).when("/bootstrap", { controller: "BootstrapController", templateUrl: "App/Pages/Bootstrap/BootstrapView.html", name: "Bootstrap & FontAwesome" }).when("/ui", { controller: "UiBootstrapController", templateUrl: "App/Pages/UiBootstrap/UiBootstrapView.html", name: "UI Bootstrap" }).when("/links", { controller: "LinksController", templateUrl: "App/Pages/Links/LinksView.html", name: "Links" }).otherwise({ redirectTo: "/home" });
         };
         return IoC;
     })();
@@ -28,15 +28,63 @@
 var Directives;
 (function (Directives) {
     var MenuDirective = (function () {
-        function MenuDirective() {
+        function MenuDirective($route) {
+            this.$route = $route;
             this.restrict = 'E';
             this.replace = true;
-            this.scope = { selectedItem: '@', title: '@', items: '=' };
+            this.scope = { iconClass: '@', title: '@' };
             this.templateUrl = 'App/Directives/MenuDirective.html';
+            this.routes = [];
         }
+        MenuDirective.prototype.compile = function (elem, attrs, transclude) {
+            var _this = this;
+            return function ($scope) { return _this.postLink($scope); };
+        };
+        MenuDirective.prototype.postLink = function ($scope) {
+            var _this = this;
+            this.setRoutes();
+            $scope.selectedItem = this.getCurrentPage();
+            $scope.routes = this.routes;
+            $scope.$on('$locationChangeSuccess', function (event) { return _this.SetPage($scope); });
+        };
+        MenuDirective.prototype.setRoutes = function () {
+            this.routes = [];
+            for (var propertyName in this.$route.routes) {
+                var item = this.$route.routes[propertyName];
+                if (item.name) {
+                    this.routes.push(item);
+                    console.debug(propertyName);
+                }
+            }
+        };
+        MenuDirective.prototype.getCurrentPage = function () {
+            var currentPath = this.$route.current.originalPath;
+            for (var i = 0; i < this.routes.length; i++) {
+                if (this.routes[i].originalPath === currentPath) {
+                    return i + 1;
+                }
+            }
+            return 0;
+        };
+        MenuDirective.prototype.SetPage = function ($scope) {
+            $scope.selectedItem = this.getCurrentPage();
+        };
         return MenuDirective;
     })();
     Directives.MenuDirective = MenuDirective;
+})(Directives || (Directives = {}));
+var Directives;
+(function (Directives) {
+    var PersonInfoDirective = (function () {
+        function PersonInfoDirective() {
+            this.restrict = 'E';
+            this.replace = true;
+            this.scope = { value: '=' };
+            this.templateUrl = 'App/Directives/PersonInfoDirective.html';
+        }
+        return PersonInfoDirective;
+    })();
+    Directives.PersonInfoDirective = PersonInfoDirective;
 })(Directives || (Directives = {}));
 var Filters = (function () {
     function Filters() {
@@ -44,28 +92,24 @@ var Filters = (function () {
     Filters.Difference = function (indataUnparsed) {
         var result = "";
         var indata = +indataUnparsed;
-
         if (indata < 0) {
             result = "" + indata.toFixed(1);
-        } else if (indata > 0) {
+        }
+        else if (indata > 0) {
             result = "+" + indata.toFixed(1);
         }
-
         return result;
     };
     return Filters;
 })();
 var Pages;
 (function (Pages) {
-    var AboutController = (function () {
-        function AboutController($scope, dataContainer) {
-            this.$scope = $scope;
-            this.dataContainer = dataContainer;
-            $scope.menuItems = dataContainer.GetMenu();
+    var BootstrapController = (function () {
+        function BootstrapController() {
         }
-        return AboutController;
+        return BootstrapController;
     })();
-    Pages.AboutController = AboutController;
+    Pages.BootstrapController = BootstrapController;
 })(Pages || (Pages = {}));
 var Pages;
 (function (Pages) {
@@ -73,7 +117,6 @@ var Pages;
         function HomeController($scope, dataContainer) {
             this.$scope = $scope;
             this.dataContainer = dataContainer;
-            $scope.menuItems = dataContainer.GetMenu();
         }
         return HomeController;
     })();
@@ -85,7 +128,6 @@ var Pages;
         function LinksController($scope, dataContainer) {
             this.$scope = $scope;
             this.dataContainer = dataContainer;
-            $scope.menuItems = dataContainer.GetMenu();
         }
         return LinksController;
     })();
@@ -98,38 +140,22 @@ var Pages;
             var _this = this;
             this.$scope = $scope;
             this.dataContainer = dataContainer;
-            $scope.menuItems = dataContainer.GetMenu();
-
-            $scope.getData = function () {
-                return _this.getServerData();
-            };
-            $scope.getData2 = function () {
-                return _this.getServerDataError();
-            };
+            $scope.personInfos = dataContainer.GetPersons();
+            $scope.getData = function () { return _this.getServerData(); };
+            $scope.getData2 = function () { return _this.getServerDataError(); };
         }
         SamplesController.prototype.getServerData = function () {
             var _this = this;
-            this.dataContainer.GetServerData().then(function (data) {
-                return _this.serverDataFetched(data);
-            }, function (errorInfo) {
-                return _this.serverFail(errorInfo);
-            });
+            this.dataContainer.GetServerData().then(function (data) { return _this.serverDataFetched(data); }, function (errorInfo) { return _this.serverFail(errorInfo); });
         };
-
         SamplesController.prototype.getServerDataError = function () {
             var _this = this;
-            this.dataContainer.GetServerDataError().then(function (data) {
-                return _this.serverDataFetched(data);
-            }, function (errorInfo) {
-                return _this.serverFail(errorInfo);
-            });
+            this.dataContainer.GetServerDataError().then(function (data) { return _this.serverDataFetched(data); }, function (errorInfo) { return _this.serverFail(errorInfo); });
         };
-
         SamplesController.prototype.serverDataFetched = function (data) {
             this.$scope.serverData = data;
             this.$scope.message = "DataFetched!";
         };
-
         SamplesController.prototype.serverFail = function (errorInfo) {
             this.$scope.serverData = null;
             this.$scope.message = "Error " + errorInfo.status + " Message: " + errorInfo.statusText;
@@ -145,7 +171,6 @@ var Pages;
             this.$scope = $scope;
             this.$location = $location;
             this.dataContainer = dataContainer;
-            $scope.menuItems = dataContainer.GetMenu();
         }
         return UiBootstrapController;
     })();
@@ -157,22 +182,18 @@ var Services;
         function DataContainer($http) {
             this.$http = $http;
         }
-        DataContainer.prototype.GetMenu = function () {
+        DataContainer.prototype.GetPersons = function () {
             return [
-                { link: '#/home', text: 'Home' },
-                { link: '#/samples', text: 'Samples' },
-                { link: '#/ui', text: 'Ui Bootstrap' },
-                { link: '#/links', text: 'Links' },
-                { link: '#/about', text: 'About' }
+                { FirstName: 'Willhelm', LastName: 'Tell', Address: 'Hut road 15', Zip: '123 45', City: 'Alpendorf' },
+                { FirstName: 'Cinder', LastName: 'Ella', Address: 'Glass Mountain 42', Zip: '543 21', City: 'FairyTown' },
+                { FirstName: 'Snow', LastName: 'White', Address: 'Castle road 1', Zip: '999 99', City: 'FairyTown' }
             ];
         };
-
         DataContainer.prototype.GetServerData = function () {
             return this.$http.get('Api/data.txt').then(function (serverResponse) {
                 return serverResponse.data;
             });
         };
-
         DataContainer.prototype.GetServerDataError = function () {
             return this.$http.get('Api/nonExistant.txt').then(function (serverResponse) {
                 return serverResponse.data;

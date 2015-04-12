@@ -1,13 +1,11 @@
-﻿<menu items="menuItems" selected-item="3" title="TS & Angulardemo"></menu>
-<div class="container">
-    <hr />
-    <h2>Ui Bootstrap</h2>
+﻿<div class="container">
+    <h1>Bootstrap & Font Awesome</h1>
     <p>Bootstrap components written in pure AngularJS by the AngularUI Team</p>
     <p>The Ui Bootstrap has many useful controls that complement the native HTML controls</p>
     <p>The samples below are just some simple controls. There are lot more to find at <a href="http://angular-ui.github.io/bootstrap">Ui Bootstrap page</a></p>
     <hr />
-        <div class="btn-group" dropdown is-open="status.isopen">
-        <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
+    <div class="btn-group" dropdown>
+        <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled" dropdown-toggle>
             Button dropdown <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
@@ -16,13 +14,27 @@
             <li><a href="#">Something else here</a></li>
         </ul>
     </div>
-    <hr/>
+    <hr />
     <button popover="Info" popover-title="Title" class="btn btn-default">Popover</button>
-    <hr/>
+    <hr />
     <tabset>
-        <tab heading="Main tab">Some content</tab>
-        <tab heading="Another tab">Some other content</tab>
-        <tab heading="Last tab">The last content</tab>
+        <tab heading="Main tab">
+            Ipsum anim cillum nisi beef, sed ut pariatur cupidatat sausage short loin brisket landjaeger ut.
+            Fugiat capicola id adipisicing sint bacon dolore leberkas voluptate pastrami aliqua non biltong.
+            Ground round bresaola tail, nulla mollit sed cupidatat sirloin nisi dolore.
+            Tempor landjaeger filet mignon excepteur picanha minim flank in commodo nisi culpa.
+            Pork ball tip pork chop, ullamco sed porchetta incididunt duis salami nulla voluptate velit alcatra.
+        </tab>
+        <tab heading="Another tab">
+            Excepteur turducken kielbasa in. Ground round drumstick in, turducken elit kevin est fatback excepteur nulla.
+            Short ribs ullamco short loin, pastrami id ut fugiat dolor. Beef sint dolore aute, consequat non mollit.
+            Shoulder cupidatat landjaeger, ad cow corned beef ut jerky t-bone ground round lorem quis aliquip. Shoulder ut veniam officia.
+        </tab>
+        <tab>
+            <tab-heading><i class="fa fa-cogs"></i> Settings</tab-heading>
+            In kielbasa andouille veniam duis. Filet mignon tenderloin est shoulder in doner ut proident andouille bacon velit ullamco ground round.
+            Pork loin shank meatball ut tenderloin. Landjaeger dolore est hamburger, brisket short loin voluptate ham ad.
+            Tenderloin shoulder reprehenderit nulla aliquip tempor shank exercitation minim.
+        </tab>
     </tabset>
-    <hr/>
 </div>

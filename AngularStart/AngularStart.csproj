@@ -15,12 +15,12 @@
     <RootNamespace>AngularStart</RootNamespace>
     <AssemblyName>AngularStart</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,9 +60,117 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Api\data.txt" />
-    <Content Include="css\bootstrap.min.css" />
+    <Content Include="App\Directives\PersonInfoDirective.html" />
+    <Content Include="App\Pages\Bootstrap\BootstrapView.html" />
+    <Content Include="Content\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\font-awesome-4.3.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\main.css">
+      <DependentUpon>main.less</DependentUpon>
+    </Content>
+    <Content Include="Content\main.min.css">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
+    <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="Misc\Angular.pptx" />
+    <Content Include="Content\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap-3.3.4\less\alerts.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\badges.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\bootstrap.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\breadcrumbs.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\button-groups.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\buttons.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\carousel.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\close.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\code.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\component-animations.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\dropdowns.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\forms.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\glyphicons.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\grid.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\input-groups.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\jumbotron.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\labels.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\list-group.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\media.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\alerts.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\background-variant.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\border-radius.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\buttons.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\center-block.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\clearfix.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\forms.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\gradients.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\grid-framework.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\grid.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\hide-text.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\image.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\labels.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\list-group.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\nav-divider.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\nav-vertical-align.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\opacity.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\pagination.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\panels.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\progress-bar.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\reset-filter.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\resize.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\responsive-visibility.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\size.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\tab-focus.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\table-row.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\text-emphasis.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\text-overflow.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\vendor-prefixes.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\modals.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\navbar.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\navs.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\normalize.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\pager.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\pagination.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\panels.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\popovers.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\print.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\progress-bars.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\responsive-embed.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\responsive-utilities.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\scaffolding.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\tables.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\theme.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\thumbnails.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\tooltip.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\type.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\utilities.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\variables.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\wells.less" />
+    <Content Include="Content\font-awesome-4.3.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\font-awesome-4.3.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\font-awesome-4.3.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\font-awesome-4.3.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\font-awesome-4.3.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\font-awesome-4.3.0\less\animated.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\bordered-pulled.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\core.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\fixed-width.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\font-awesome.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\icons.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\larger.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\list.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\mixins.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\path.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\rotated-flipped.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\stacked.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\variables.less" />
+    <Content Include="Content\main.less" />
+    <Content Include="Content\theme.less" />
+    <Content Include="Content\variables.less" />
+    <Content Include="Content\main.css.map">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\AngularStart.pubxml" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
@@ -83,14 +191,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\custom.css" />
     <Content Include="default.html" />
     <Content Include="App\Directives\MenuDirective.html" />
     <Content Include="App\Pages\UiBootstrap\UiBootstrapView.html" />
     <Content Include="App\Pages\Samples\SamplesView.html" />
     <Content Include="App\Pages\Links\LinksView.html" />
     <Content Include="App\Pages\Home\HomeView.html" />
-    <Content Include="App\Pages\About\AboutView.html" />
     <Content Include="Scripts\ie10-viewport-bug-workaround.js" />
     <Content Include="TrivialSamples\Demo1.html" />
     <Content Include="TrivialSamples\Demo2.html" />
@@ -108,10 +214,12 @@
   <ItemGroup>
     <TypeScriptCompile Include="App\Configuration\IoC.ts" />
     <TypeScriptCompile Include="App\Contracts\IHttpError.ts" />
-    <TypeScriptCompile Include="App\Contracts\IMenuItem.ts" />
+    <TypeScriptCompile Include="App\Contracts\IPersonInfo.ts" />
     <TypeScriptCompile Include="App\Contracts\IFirstName.ts" />
     <TypeScriptCompile Include="App\Directives\MenuDirective.ts" />
+    <TypeScriptCompile Include="App\Directives\PersonInfoDirective.ts" />
     <TypeScriptCompile Include="App\Filters\Filters.ts" />
+    <TypeScriptCompile Include="App\Pages\Bootstrap\BootstrapController.ts" />
     <TypeScriptCompile Include="App\Pages\UiBootstrap\IUiBootstrapViewModel.ts" />
     <TypeScriptCompile Include="App\Pages\UiBootstrap\UiBootstrapController.ts" />
     <TypeScriptCompile Include="App\Pages\Samples\SamplesController.ts" />
@@ -120,8 +228,6 @@
     <TypeScriptCompile Include="App\Pages\Links\LinksController.ts" />
     <TypeScriptCompile Include="App\Pages\Home\IHomeViewModel.ts" />
     <TypeScriptCompile Include="App\Pages\Home\HomeController.ts" />
-    <TypeScriptCompile Include="App\Pages\About\AboutController.ts" />
-    <TypeScriptCompile Include="App\Pages\About\IAboutViewModel.ts" />
     <TypeScriptCompile Include="App\Services\DataContainer.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
@@ -130,7 +236,6 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-resource.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-route.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-scenario.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
@@ -157,7 +262,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60662</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:60662/</IISUrl>
+          <IISUrl>http://localhost/AngularStart</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

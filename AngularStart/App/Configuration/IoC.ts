@@ -6,23 +6,30 @@ module Configuration
         {
             var application: ng.IModule = angular.module(applicationName, ['ui.bootstrap', 'ngRoute']);
 
-            application.config(["$routeProvider", this.mapRoutes]);
+            application.directive('menu',($route) => new Directives.MenuDirective($route));
+            application.directive('personInfo',() => new Directives.PersonInfoDirective());
 
-            application.directive('menu', [() => new Directives.MenuDirective()]);
             application.service('dataContainer', Services.DataContainer);
 
-            application.filter('diff', () => { return Filters.Difference; });
+            application.filter('diff',() => { return Filters.Difference; });
+
+            application.controller('HomeController', Pages.HomeController);
+            application.controller('SamplesController', Pages.SamplesController);
+            application.controller('UiBootstrapController', Pages.UiBootstrapController);
+            application.controller('BootstrapController', Pages.BootstrapController);
+            application.controller('LinksController', Pages.LinksController);
+
+            application.config(["$routeProvider", this.mapRoutes]);
         }
 
         private static mapRoutes($routeProvider: ng.route.IRouteProvider)
         {
             $routeProvider
-                .when("/home", { controller: "Pages.HomeController", templateUrl: "App/Pages/Home/HomeView.html" })
-                .when("/samples", { controller: "Pages.SamplesController", templateUrl: "App/Pages/Samples/SamplesView.html" })
-                .when("/ui", { controller: "Pages.UiBootstrapController", templateUrl: "App/Pages/UiBootstrap/UiBootstrapView.html" })
-                .when("/links", { controller: "Pages.LinksController", templateUrl: "App/Pages/Links/LinksView.html" })
-                .when("/about", { controller: "Pages.AboutController", templateUrl: "App/Pages/About/AboutView.html" })
-//                .when("/login/:action", { controller: "Pages_Start.Controller", templateUrl: "Pages/Start/View.html" })
+                .when("/home", { controller: "HomeController", templateUrl: "App/Pages/Home/HomeView.html", name: "Info" })
+                .when("/samples", { controller: "SamplesController", templateUrl: "App/Pages/Samples/SamplesView.html", name: "Samples" })
+                .when("/bootstrap", { controller: "BootstrapController", templateUrl: "App/Pages/Bootstrap/BootstrapView.html", name: "Bootstrap & FontAwesome" })
+                .when("/ui", { controller: "UiBootstrapController", templateUrl: "App/Pages/UiBootstrap/UiBootstrapView.html", name: "UI Bootstrap" })
+                .when("/links", { controller: "LinksController", templateUrl: "App/Pages/Links/LinksView.html", name: "Links" })
                 .otherwise({ redirectTo: "/home" });
         }
     }

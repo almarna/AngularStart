@@ -1,30 +1,56 @@
-﻿<menu items="menuItems" selected-item="2" title="TS & Angulardemo"></menu>
-<div class="container">
-    <div>
-        <hr />
-        <h2>Filter</h2>
-        <p>A simple filter to display negative or positive numbers and display nothing if 0 or NaN</p>
-        <p>Enter values: 
-            <input type="text" ng-model="first" size="3"/> 
-            <input type="text" ng-model="second" size="3"/>
-            Difference: [{{ second - first | diff }}]</p>
-        <hr/>
-        <h2>Fetch server data</h2>
-        <input type="button" value="Get" ng-click="getData()" />
-        <input type="button" value="Get with error" ng-click="getData2()" />
-        <br/><br />
-        
-        <table class="table">
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-            </tr>
-            <tr ng-repeat="data in serverData | orderBy:'-MeasureDate' ">
-                <td>{{data.id}}</td>
-                <td>{{data.name}}</td>
-            </tr>
-        </table>
-        Message: [{{message}}]
-        <hr />
+﻿<div class="container">
+    <h1>Samples</h1>
+    <p>Samples of how to get things done with AngularJs and Typescript</p>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3><i class="fa fa-recycle text-primary"></i> Directives</h3>
+        </div>
+        <div class="panel-body">
+            <p>Simple directive to show how html can be reused. The menu is a more advanced example of a directive.</p>
+            <p>Directives are a bit hard to understand at first, but gives a great possibility to reuse components within the project and between projects</p>
+
+            <div ng-repeat="personInfoData in personInfos">
+                <person-info value="personInfoData" />
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3><i class="fa fa-filter text-primary"></i> Filter</h3>
+        </div>
+        <div class="panel-body">
+            <p>A simple filter to display negative or positive numbers and display nothing if 0 or NaN</p>
+            <div class="form-inline">
+                Enter values:
+                <input type="text" class="form-control" ng-model="first" />
+                <input type="text" class="form-control" ng-model="second" />
+                Difference: [{{ second - first | diff }}]
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3><i class="fa fa-database text-primary"></i> Server communication</h3>
+        </div>
+        <div class="panel-body">
+            <input type="button" value="Get" ng-click="getData()" />
+            <input type="button" value="Get with error" ng-click="getData2()" />
+            <br /><br />
+
+            <div class="row row-table">
+                <div class="col-sm-2 lead">Id</div>
+                <div class="col-sm-4 lead">Name</div>
+            </div>
+            <div ng-repeat="data in serverData | orderBy:'-MeasureDate' " class="row row-table">
+                <div class="col-sm-2">{{data.id}}</div>
+                <div class="col-sm-4">{{data.name}}</div>
+            </div>
+
+            <alert type="info" ng-show="message" close="message=''">{{message}}</alert>
+        </div>
     </div>
 </div>
+
