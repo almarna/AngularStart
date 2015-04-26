@@ -15,7 +15,7 @@
     <RootNamespace>AngularStart</RootNamespace>
     <AssemblyName>AngularStart</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -63,14 +63,37 @@
     <Content Include="App\Directives\PersonInfoDirective.html" />
     <Content Include="App\Pages\Bootstrap\BootstrapView.html" />
     <Content Include="Content\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\common.css">
+      <DependentUpon>common.less</DependentUpon>
+    </Content>
+    <Content Include="Content\common.min.css">
+      <DependentUpon>common.css</DependentUpon>
+    </Content>
+    <Content Include="Content\darkly - Copy.css">
+      <DependentUpon>united.less</DependentUpon>
+    </Content>
+    <Content Include="Content\darkly - Copy.min.css">
+      <DependentUpon>darkly - Copy.css</DependentUpon>
+    </Content>
     <Content Include="Content\font-awesome-4.3.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\darkly.css">
+      <DependentUpon>darkly.less</DependentUpon>
+    </Content>
+    <Content Include="Content\darkly.min.css">
+      <DependentUpon>darkly.css</DependentUpon>
+    </Content>
     <Content Include="Content\main.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
     <Content Include="Content\main.min.css">
       <DependentUpon>main.css</DependentUpon>
     </Content>
-    <Content Include="index.html" />
+    <Content Include="Content\united.css">
+      <DependentUpon>united.less</DependentUpon>
+    </Content>
+    <Content Include="Content\united.min.css">
+      <DependentUpon>united.css</DependentUpon>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="Misc\Angular.pptx" />
     <Content Include="Content\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.eot" />
@@ -167,9 +190,27 @@
     <Content Include="Content\font-awesome-4.3.0\less\variables.less" />
     <Content Include="Content\main.less" />
     <Content Include="Content\theme.less" />
-    <Content Include="Content\variables.less" />
+    <Content Include="Content\common.less" />
     <Content Include="Content\main.css.map">
       <DependentUpon>main.css</DependentUpon>
+    </Content>
+    <Content Include="Content\themes\Darkly\theme.less" />
+    <Content Include="Content\themes\Darkly\variables.less" />
+    <Content Include="Content\themes\United\theme.less" />
+    <Content Include="Content\themes\United\variables.less" />
+    <Content Include="Content\common.css.map">
+      <DependentUpon>common.css</DependentUpon>
+    </Content>
+    <Content Include="Content\darkly.less" />
+    <Content Include="Content\darkly.css.map">
+      <DependentUpon>darkly.css</DependentUpon>
+    </Content>
+    <Content Include="Content\united.less" />
+    <Content Include="Content\darkly - Copy.css.map">
+      <DependentUpon>darkly - Copy.css</DependentUpon>
+    </Content>
+    <Content Include="Content\united.css.map">
+      <DependentUpon>united.css</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\AngularStart.pubxml" />
     <Content Include="Scripts\angular-mocks.js" />
@@ -220,6 +261,7 @@
     <TypeScriptCompile Include="App\Directives\PersonInfoDirective.ts" />
     <TypeScriptCompile Include="App\Filters\Filters.ts" />
     <TypeScriptCompile Include="App\Pages\Bootstrap\BootstrapController.ts" />
+    <TypeScriptCompile Include="App\Pages\Master\MasterController.ts" />
     <TypeScriptCompile Include="App\Pages\UiBootstrap\IUiBootstrapViewModel.ts" />
     <TypeScriptCompile Include="App\Pages\UiBootstrap\UiBootstrapController.ts" />
     <TypeScriptCompile Include="App\Pages\Samples\SamplesController.ts" />
@@ -229,6 +271,7 @@
     <TypeScriptCompile Include="App\Pages\Home\IHomeViewModel.ts" />
     <TypeScriptCompile Include="App\Pages\Home\HomeController.ts" />
     <TypeScriptCompile Include="App\Services\DataContainer.ts" />
+    <TypeScriptCompile Include="App\Services\LocalStorageOrCookie.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
@@ -262,7 +305,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60662</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/AngularStart</IISUrl>
+          <IISUrl>http://localhost:60662/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

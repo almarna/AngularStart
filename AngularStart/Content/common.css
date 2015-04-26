@@ -1,0 +1,18 @@
+﻿.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
+}
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+.top-5 {
+  margin-top: 5px;
+}
+/*# sourceMappingURL=common.css.map */

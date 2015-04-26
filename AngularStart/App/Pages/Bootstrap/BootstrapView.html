@@ -6,6 +6,30 @@
             <h3><i class="fa fa-twitter-square text-primary"></i> Bootstrap</h3>
         </div>
         <div class="panel-body">
+            <!--<li class="dropdown" dropdown on-toggle="toggled(open)">
+                    <a href class="dropdown-toggle" dropdown-toggle>
+                        Theme
+                    </a>
+                    <ul class="dropdown-menu" >
+                        <li><a href="#">Main</a></li>
+                        <li><a href="#">Darkly</a></li>
+                    </ul>
+                </li>-->
+            
+            <div class="row top-5">
+                <div class="col-sm-3"><h4>Themes</h4></div>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        <label for="sel1">Select theme:</label>
+                        <select class="form-control" id="themes" ng-model="Theme" ng-change="ThemeChange()">
+                            <option>Main</option>
+                            <option>Darkly</option>
+                            <option>United</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
             <div class="row top-5">
                 <div class="col-sm-3"><h4>Colors</h4></div>
                 <div class="col-sm-9">
@@ -88,11 +112,11 @@
             <div class="row top-5">
                 <div class="col-sm-3"><h4>Input with addon</h4></div>
                 <div class="col-sm-4">
-                    <div class="input-group margin-bottom-sm">
+                    <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
                         <input class="form-control" type="text" placeholder="Email address">
                     </div>
-                    <div class="input-group">
+                    <div class="input-group top-5">
                         <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
                         <input class="form-control" type="password" placeholder="Password">
                     </div>

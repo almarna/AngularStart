@@ -10,9 +10,11 @@ module Configuration
             application.directive('personInfo',() => new Directives.PersonInfoDirective());
 
             application.service('dataContainer', Services.DataContainer);
+            application.service('storage', LocalStorageOrCookie);
 
             application.filter('diff',() => { return Filters.Difference; });
 
+            application.controller('MasterController', Pages.MasterController);
             application.controller('HomeController', Pages.HomeController);
             application.controller('SamplesController', Pages.SamplesController);
             application.controller('UiBootstrapController', Pages.UiBootstrapController);
