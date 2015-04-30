@@ -4,17 +4,16 @@ module Directives
     {
         selectedItem: number;
         routes: any[];
-        iconClass: string;
     }
 
     export class MenuDirective implements ng.IDirective
     {
         restrict = 'E';
         replace = true;
-        scope = { iconClass: '@', title: '@' };
         templateUrl: string = 'App/Directives/MenuDirective.html';
+        transclude = true;
 
-        routes = [];
+        private routes = [];
 
         constructor(private $route)
         {
@@ -31,7 +30,7 @@ module Directives
 
             $scope.selectedItem = this.getCurrentPage();
             $scope.routes = this.routes;
-            $scope.$on('$locationChangeSuccess', (event) => this.SetPage($scope));
+            $scope.$on('$locationChangeSuccess',() => $scope.selectedItem = this.getCurrentPage());
         }
 
         private setRoutes()
@@ -60,13 +59,7 @@ module Directives
                     return i + 1;
                 }
             }
-
             return 0;
-        }
-
-        public SetPage($scope): void
-        {
-            $scope.selectedItem = this.getCurrentPage();
         }
     }
 }

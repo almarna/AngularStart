@@ -8,9 +8,11 @@ var Configuration;
             application.directive('menu', function ($route) { return new Directives.MenuDirective($route); });
             application.directive('personInfo', function () { return new Directives.PersonInfoDirective(); });
             application.service('dataContainer', Services.DataContainer);
+            application.service('storage', LocalStorageOrCookie);
             application.filter('diff', function () {
                 return Filters.Difference;
             });
+            application.controller('MasterController', Pages.MasterController);
             application.controller('HomeController', Pages.HomeController);
             application.controller('SamplesController', Pages.SamplesController);
             application.controller('UiBootstrapController', Pages.UiBootstrapController);
@@ -32,8 +34,8 @@ var Directives;
             this.$route = $route;
             this.restrict = 'E';
             this.replace = true;
-            this.scope = { iconClass: '@', title: '@' };
             this.templateUrl = 'App/Directives/MenuDirective.html';
+            this.transclude = true;
             this.routes = [];
         }
         MenuDirective.prototype.compile = function (elem, attrs, transclude) {
@@ -45,7 +47,7 @@ var Directives;
             this.setRoutes();
             $scope.selectedItem = this.getCurrentPage();
             $scope.routes = this.routes;
-            $scope.$on('$locationChangeSuccess', function (event) { return _this.SetPage($scope); });
+            $scope.$on('$locationChangeSuccess', function () { return $scope.selectedItem = _this.getCurrentPage(); });
         };
         MenuDirective.prototype.setRoutes = function () {
             this.routes = [];
@@ -65,9 +67,6 @@ var Directives;
                 }
             }
             return 0;
-        };
-        MenuDirective.prototype.SetPage = function ($scope) {
-            $scope.selectedItem = this.getCurrentPage();
         };
         return MenuDirective;
     })();
@@ -105,8 +104,21 @@ var Filters = (function () {
 var Pages;
 (function (Pages) {
     var BootstrapController = (function () {
-        function BootstrapController() {
+        function BootstrapController($scope, storage) {
+            var _this = this;
+            this.$scope = $scope;
+            this.storage = storage;
+            var theme = this.storage.Get("theme");
+            if (theme) {
+                $scope.Theme = theme;
+            }
+            $scope.ThemeChange = function () { return _this.themeChange(); };
         }
+        BootstrapController.prototype.themeChange = function () {
+            var parent = this.$scope.$parent;
+            parent.Theme = this.$scope.Theme;
+            this.storage.Set("theme", this.$scope.Theme);
+        };
         return BootstrapController;
     })();
     Pages.BootstrapController = BootstrapController;
@@ -132,6 +144,22 @@ var Pages;
         return LinksController;
     })();
     Pages.LinksController = LinksController;
+})(Pages || (Pages = {}));
+var Pages;
+(function (Pages) {
+    var MasterController = (function () {
+        function MasterController($scope, storage) {
+            this.$scope = $scope;
+            this.storage = storage;
+            var theme = this.storage.Get("theme");
+            if (!theme) {
+                theme = 'Main';
+            }
+            $scope.Theme = theme;
+        }
+        return MasterController;
+    })();
+    Pages.MasterController = MasterController;
 })(Pages || (Pages = {}));
 var Pages;
 (function (Pages) {
@@ -203,4 +231,56 @@ var Services;
     })();
     Services.DataContainer = DataContainer;
 })(Services || (Services = {}));
+var LocalStorageOrCookie = (function () {
+    function LocalStorageOrCookie() {
+        this.localStorageSupported = (typeof localStorage != "undefined" && localStorage !== null);
+    }
+    LocalStorageOrCookie.prototype.Delete = function (key) {
+        if (this.localStorageSupported) {
+            localStorage.removeItem(key);
+        }
+        else {
+            this.createCookie(key, null, -1);
+        }
+    };
+    LocalStorageOrCookie.prototype.Set = function (key, value) {
+        if (this.localStorageSupported) {
+            localStorage.setItem(key, value);
+        }
+        else {
+            this.createCookie(key, value, 30);
+        }
+    };
+    LocalStorageOrCookie.prototype.createCookie = function (key, value, expires) {
+        var date = new Date();
+        date.setTime(date.getTime() + (expires * 24 * 60 * 60 * 1000));
+        var expiresStr = "; expires=" + date.toUTCString();
+        document.cookie = key + "=" + encodeURIComponent(value) + expiresStr + "; path=/";
+    };
+    LocalStorageOrCookie.prototype.Get = function (key) {
+        if (this.localStorageSupported) {
+            return localStorage.getItem(key);
+        }
+        else {
+            return this.readCookie(key);
+        }
+    };
+    LocalStorageOrCookie.prototype.readCookie = function (key) {
+        var cookies = document.cookie;
+        var startPos = cookies.indexOf(" " + key + "=");
+        if (startPos == -1) {
+            startPos = cookies.indexOf(key + "=");
+        }
+        if (startPos < 0) {
+            return null;
+        }
+        var valueStartPos = cookies.indexOf("=", startPos) + 1;
+        var valueEndPos = cookies.indexOf(";", valueStartPos);
+        if (valueEndPos == -1) {
+            valueEndPos = cookies.length;
+        }
+        return decodeURIComponent(cookies.substring(valueStartPos, valueEndPos));
+    };
+    return LocalStorageOrCookie;
+})();
 //# sourceMappingURL=CombinedTypescript.js.map

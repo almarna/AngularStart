@@ -15,11 +15,13 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
- 
+        <style type="text/css">
+            [ng-cloak] { display: none; }
+        </style>
     </head>
     <body ng-controller="MasterController">
         <link ng-href="Content/{{ Theme }}.min.css" rel="stylesheet" />
-        <menu icon-class="fa fa-send-o" title="TS & Angulardemo"></menu>
+        <menu ng-cloak><span ng-class="iconClass" class="fa fa-send-o" /> TS & Angulardemo</menu>
         <div ng-view class="container"></div>
 
         <script src="Scripts/angular.js"></script>
