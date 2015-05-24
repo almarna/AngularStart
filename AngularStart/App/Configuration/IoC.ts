@@ -1,5 +1,11 @@
 module Configuration
 {
+    //export interface IMenuRoute extends ng.route.IRoute
+    //{
+    //    name: string;
+    //    icon: string;
+    //}
+
     export class IoC
     {
         public static SetupMappings(applicationName: string): void
@@ -27,11 +33,36 @@ module Configuration
         private static mapRoutes($routeProvider: ng.route.IRouteProvider)
         {
             $routeProvider
-                .when("/home", { controller: "HomeController", templateUrl: "App/Pages/Home/HomeView.html", name: "Info" })
-                .when("/samples", { controller: "SamplesController", templateUrl: "App/Pages/Samples/SamplesView.html", name: "Samples" })
-                .when("/bootstrap", { controller: "BootstrapController", templateUrl: "App/Pages/Bootstrap/BootstrapView.html", name: "Bootstrap & FontAwesome" })
-                .when("/ui", { controller: "UiBootstrapController", templateUrl: "App/Pages/UiBootstrap/UiBootstrapView.html", name: "UI Bootstrap" })
-                .when("/links", { controller: "LinksController", templateUrl: "App/Pages/Links/LinksView.html", name: "Links" })
+                .when("/home",{
+                    controller: "HomeController",
+                    templateUrl: "App/Pages/Home/HomeView.html",
+                    name: "Info",
+                    icon: "fa fa-car"
+                    })
+                .when("/samples", {
+                    controller: "SamplesController",
+                    templateUrl: "App/Pages/Samples/SamplesView.html",
+                    name: "Samples",
+                    icon: "fa fa-ship"
+                    })
+                .when("/bootstrap", {
+                    controller: "BootstrapController",
+                    templateUrl: "App/Pages/Bootstrap/BootstrapView.html",
+                    name: "Bootstrap & FontAwesome",
+                    icon: "fa fa-bicycle"
+                    })
+                .when("/ui", {
+                    controller: "UiBootstrapController",
+                    templateUrl: "App/Pages/UiBootstrap/UiBootstrapView.html",
+                    name: "UI Bootstrap",
+                    icon: "fa fa-motorcycle"
+                    })
+                .when("/links", {
+                    controller: "LinksController",
+                    templateUrl: "App/Pages/Links/LinksView.html",
+                    name: "Links",
+                    icon: "fa fa-bus"
+                    })
                 .otherwise({ redirectTo: "/home" });
         }
     }

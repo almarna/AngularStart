@@ -1,5 +1,10 @@
 var Configuration;
 (function (Configuration) {
+    //export interface IMenuRoute extends ng.route.IRoute
+    //{
+    //    name: string;
+    //    icon: string;
+    //}
     var IoC = (function () {
         function IoC() {
         }
@@ -21,7 +26,32 @@ var Configuration;
             application.config(["$routeProvider", this.mapRoutes]);
         };
         IoC.mapRoutes = function ($routeProvider) {
-            $routeProvider.when("/home", { controller: "HomeController", templateUrl: "App/Pages/Home/HomeView.html", name: "Info" }).when("/samples", { controller: "SamplesController", templateUrl: "App/Pages/Samples/SamplesView.html", name: "Samples" }).when("/bootstrap", { controller: "BootstrapController", templateUrl: "App/Pages/Bootstrap/BootstrapView.html", name: "Bootstrap & FontAwesome" }).when("/ui", { controller: "UiBootstrapController", templateUrl: "App/Pages/UiBootstrap/UiBootstrapView.html", name: "UI Bootstrap" }).when("/links", { controller: "LinksController", templateUrl: "App/Pages/Links/LinksView.html", name: "Links" }).otherwise({ redirectTo: "/home" });
+            $routeProvider.when("/home", {
+                controller: "HomeController",
+                templateUrl: "App/Pages/Home/HomeView.html",
+                name: "Info",
+                icon: "fa fa-car"
+            }).when("/samples", {
+                controller: "SamplesController",
+                templateUrl: "App/Pages/Samples/SamplesView.html",
+                name: "Samples",
+                icon: "fa fa-ship"
+            }).when("/bootstrap", {
+                controller: "BootstrapController",
+                templateUrl: "App/Pages/Bootstrap/BootstrapView.html",
+                name: "Bootstrap & FontAwesome",
+                icon: "fa fa-bicycle"
+            }).when("/ui", {
+                controller: "UiBootstrapController",
+                templateUrl: "App/Pages/UiBootstrap/UiBootstrapView.html",
+                name: "UI Bootstrap",
+                icon: "fa fa-motorcycle"
+            }).when("/links", {
+                controller: "LinksController",
+                templateUrl: "App/Pages/Links/LinksView.html",
+                name: "Links",
+                icon: "fa fa-bus"
+            }).otherwise({ redirectTo: "/home" });
         };
         return IoC;
     })();
@@ -37,6 +67,7 @@ var Directives;
             this.templateUrl = 'App/Directives/MenuDirective.html';
             this.transclude = true;
             this.routes = [];
+            this.setRoutes();
         }
         MenuDirective.prototype.compile = function (elem, attrs, transclude) {
             var _this = this;
@@ -44,10 +75,14 @@ var Directives;
         };
         MenuDirective.prototype.postLink = function ($scope) {
             var _this = this;
-            this.setRoutes();
-            $scope.selectedItem = this.getCurrentPage();
+            this.$scope = $scope;
             $scope.routes = this.routes;
-            $scope.$on('$locationChangeSuccess', function () { return $scope.selectedItem = _this.getCurrentPage(); });
+            this.setCurrentPage();
+            $scope.$on('$locationChangeSuccess', function () { return _this.locationChanged(); });
+        };
+        MenuDirective.prototype.locationChanged = function () {
+            this.$scope.isExpanded = false;
+            this.setCurrentPage();
         };
         MenuDirective.prototype.setRoutes = function () {
             this.routes = [];
@@ -59,14 +94,15 @@ var Directives;
                 }
             }
         };
-        MenuDirective.prototype.getCurrentPage = function () {
+        MenuDirective.prototype.setCurrentPage = function () {
             var currentPath = this.$route.current.originalPath;
             for (var i = 0; i < this.routes.length; i++) {
                 if (this.routes[i].originalPath === currentPath) {
-                    return i + 1;
+                    this.$scope.selectedItem = i;
+                    return;
                 }
             }
-            return 0;
+            this.$scope.selectedItem = -1;
         };
         return MenuDirective;
     })();

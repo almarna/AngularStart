@@ -4,6 +4,7 @@ module Directives
     {
         selectedItem: number;
         routes: any[];
+        isExpanded: boolean;
     }
 
     export class MenuDirective implements ng.IDirective
@@ -15,8 +16,11 @@ module Directives
 
         private routes = [];
 
+        private $scope: IMenuViewModel;
+
         constructor(private $route)
         {
+            this.setRoutes();
         }
 
         public compile(elem, attrs, transclude)
@@ -26,11 +30,18 @@ module Directives
 
         private postLink($scope: IMenuViewModel)
         {
-            this.setRoutes();
+            this.$scope = $scope;
 
-            $scope.selectedItem = this.getCurrentPage();
             $scope.routes = this.routes;
-            $scope.$on('$locationChangeSuccess',() => $scope.selectedItem = this.getCurrentPage());
+            this.setCurrentPage();
+
+            $scope.$on('$locationChangeSuccess',() => this.locationChanged());
+        }
+
+        private locationChanged()
+        {
+            this.$scope.isExpanded = false;
+            this.setCurrentPage();
         }
 
         private setRoutes()
@@ -48,7 +59,7 @@ module Directives
             }
         }
 
-        private getCurrentPage(): number
+        private setCurrentPage(): void
         {
             var currentPath = this.$route.current.originalPath;
 
@@ -56,10 +67,11 @@ module Directives
             {
                 if (this.routes[i].originalPath === currentPath)
                 {
-                    return i + 1;
+                    this.$scope.selectedItem = i;
+                    return;
                 }
             }
-            return 0;
+            this.$scope.selectedItem = -1;
         }
     }
 }

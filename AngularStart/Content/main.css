@@ -8371,6 +8371,10 @@ button.close {
   vertical-align: top;
   border-top: 1px solid #dddddd;
 }
+.navbar-toggle {
+  padding: 2px 4px;
+  color: #777777;
+}
 .nav,
 .pagination,
 .carousel,

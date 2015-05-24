@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{34D85551-9048-40E4-B7A8-CA70255968B4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AngularMobile</RootNamespace>
+    <AssemblyName>AngularMobile</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\MobileAngular\lib\app.less" />
+    <Content Include="Content\MobileAngular\lib\buttons.less" />
+    <Content Include="Content\MobileAngular\lib\carousel.less" />
+    <Content Include="Content\MobileAngular\lib\dropdown.less" />
+    <Content Include="Content\MobileAngular\lib\forms.less" />
+    <Content Include="Content\MobileAngular\lib\globals.less" />
+    <Content Include="Content\MobileAngular\lib\justified.less" />
+    <Content Include="Content\MobileAngular\lib\layout.less" />
+    <Content Include="Content\MobileAngular\lib\list-groups.less" />
+    <Content Include="Content\MobileAngular\lib\modal.less" />
+    <Content Include="Content\MobileAngular\lib\navbars.less" />
+    <Content Include="Content\MobileAngular\lib\normalize.less" />
+    <Content Include="Content\MobileAngular\lib\panel.less" />
+    <Content Include="Content\MobileAngular\lib\scrollable.less" />
+    <Content Include="Content\MobileAngular\lib\sections.less" />
+    <Content Include="Content\MobileAngular\lib\sidebar.less" />
+    <Content Include="Content\MobileAngular\lib\switch.less" />
+    <Content Include="Content\MobileAngular\lib\validations.less" />
+    <Content Include="Content\MobileAngular\migrate.less" />
+    <Content Include="Content\MobileAngular\migrate\overlay.less" />
+    <Content Include="Content\MobileAngular\mobile-angular-ui-desktop.less" />
+    <Content Include="Content\MobileAngular\mobile-angular-ui.less" />
+    <Content Include="Content\MobileAngular\sm-grid.less" />
+    <Content Include="Content\MobileAngular\variables.less" />
+    <Content Include="Content\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap-3.3.4\less\alerts.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\badges.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\bootstrap.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\breadcrumbs.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\button-groups.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\buttons.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\carousel.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\close.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\code.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\component-animations.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\dropdowns.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\forms.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\glyphicons.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\grid.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\input-groups.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\jumbotron.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\labels.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\list-group.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\media.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\alerts.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\background-variant.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\border-radius.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\buttons.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\center-block.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\clearfix.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\forms.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\gradients.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\grid-framework.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\grid.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\hide-text.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\image.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\labels.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\list-group.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\nav-divider.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\nav-vertical-align.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\opacity.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\pagination.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\panels.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\progress-bar.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\reset-filter.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\resize.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\responsive-visibility.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\size.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\tab-focus.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\table-row.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\text-emphasis.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\text-overflow.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins\vendor-prefixes.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\mixins.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\modals.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\navbar.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\navs.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\normalize.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\pager.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\pagination.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\panels.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\popovers.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\print.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\progress-bars.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\responsive-embed.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\responsive-utilities.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\scaffolding.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\tables.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\theme.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\thumbnails.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\tooltip.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\type.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\utilities.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\variables.less" />
+    <Content Include="Content\bootstrap-3.3.4\less\wells.less" />
+    <Content Include="Content\font-awesome-4.3.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\font-awesome-4.3.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\font-awesome-4.3.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\font-awesome-4.3.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\font-awesome-4.3.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\font-awesome-4.3.0\less\animated.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\bordered-pulled.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\core.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\fixed-width.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\font-awesome.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\icons.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\larger.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\list.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\mixins.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\path.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\rotated-flipped.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\stacked.less" />
+    <Content Include="Content\font-awesome-4.3.0\less\variables.less" />
+    <Content Include="Content\mobile-angular-ui.less" />
+    <Content Include="Content\mobile-angular-ui.css.map">
+      <DependentUpon>mobile-angular-ui.css</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\font-awesome-4.3.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\mobile-angular-ui.css">
+      <DependentUpon>mobile-angular-ui.less</DependentUpon>
+    </Content>
+    <Content Include="Content\mobile-angular-ui.min.css">
+      <DependentUpon>mobile-angular-ui.css</DependentUpon>
+    </Content>
+    <Content Include="demo\accordion.html" />
+    <Content Include="demo\carousel.html" />
+    <Content Include="demo\demo.css" />
+    <Content Include="demo\demo.js" />
+    <Content Include="demo\drag.html" />
+    <Content Include="demo\dropdown.html" />
+    <Content Include="demo\favicon.png" />
+    <Content Include="demo\forms.html" />
+    <Content Include="demo\home.html" />
+    <Content Include="demo\index.html" />
+    <Content Include="demo\modal1.html" />
+    <Content Include="demo\modal2.html" />
+    <Content Include="demo\overlay.html" />
+    <Content Include="demo\scroll.html" />
+    <Content Include="demo\sidebar.html" />
+    <Content Include="demo\sidebarRight.html" />
+    <Content Include="demo\tabs.html" />
+    <Content Include="demo\toggle.html" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\MobileAngular\components\modals.js" />
+    <Content Include="Scripts\MobileAngular\components\navbars.js" />
+    <Content Include="Scripts\MobileAngular\components\scrollable.js" />
+    <Content Include="Scripts\MobileAngular\components\sidebars.js" />
+    <Content Include="Scripts\MobileAngular\components\switch.js" />
+    <Content Include="Scripts\MobileAngular\core\activeLinks.js" />
+    <Content Include="Scripts\MobileAngular\core\capture.js" />
+    <Content Include="Scripts\MobileAngular\core\fastclick.js" />
+    <Content Include="Scripts\MobileAngular\core\outerClick.js" />
+    <Content Include="Scripts\MobileAngular\core\sharedState.js" />
+    <Content Include="Scripts\MobileAngular\gestures\drag.js" />
+    <Content Include="Scripts\MobileAngular\gestures\swipe.js" />
+    <Content Include="Scripts\MobileAngular\gestures\transform.js" />
+    <Content Include="Scripts\MobileAngular\js\mobile-angular-ui.components.js" />
+    <Content Include="Scripts\MobileAngular\js\mobile-angular-ui.components.min.js" />
+    <Content Include="Scripts\MobileAngular\js\mobile-angular-ui.core.js" />
+    <Content Include="Scripts\MobileAngular\js\mobile-angular-ui.core.min.js" />
+    <Content Include="Scripts\MobileAngular\js\mobile-angular-ui.gestures.js" />
+    <Content Include="Scripts\MobileAngular\js\mobile-angular-ui.gestures.min.js" />
+    <Content Include="Scripts\MobileAngular\js\mobile-angular-ui.js" />
+    <Content Include="Scripts\MobileAngular\js\mobile-angular-ui.migrate.js" />
+    <Content Include="Scripts\MobileAngular\js\mobile-angular-ui.migrate.min.js" />
+    <Content Include="Scripts\MobileAngular\js\mobile-angular-ui.min.js" />
+    <Content Include="Scripts\MobileAngular\migrate\carousel.js" />
+    <Content Include="Scripts\MobileAngular\migrate\disabled.js" />
+    <Content Include="Scripts\MobileAngular\migrate\forms.js" />
+    <Content Include="Scripts\MobileAngular\migrate\namespaceAliases.js" />
+    <Content Include="Scripts\MobileAngular\migrate\overlay.js" />
+    <Content Include="Scripts\MobileAngular\migrate\panels.js" />
+    <Content Include="Scripts\MobileAngular\migrate\switch.js" />
+    <Content Include="Scripts\MobileAngular\migrate\toggle.js" />
+    <Content Include="Scripts\MobileAngular\mobile-angular-ui.components.js" />
+    <Content Include="Scripts\MobileAngular\mobile-angular-ui.core.js" />
+    <Content Include="Scripts\MobileAngular\mobile-angular-ui.gestures.js" />
+    <Content Include="Scripts\MobileAngular\mobile-angular-ui.js" />
+    <Content Include="Scripts\MobileAngular\mobile-angular-ui.migrate.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49375</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49375/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

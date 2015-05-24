@@ -1,20 +1,16 @@
 ﻿<div class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" ng-click="isExpanded = !isExpanded">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+            <div class="navbar-toggle" ng-click="isExpanded = !isExpanded" ><i class="fa fa-navicon fa-2x"></i></div>
+
             <a class="navbar-brand" href="#" ng-transclude onclick="window.location.reload(true);"></a>
         </div>
 
 
         <div class="navbar-collapse" ng-class="isExpanded ?  'in' : 'collapse'">
             <ul class="nav navbar-nav">
-                <li ng-repeat="item in routes" ng-class="{'active': ($index+1)==selectedItem}">
-                    <a href="#{{item.originalPath}}">{{item.name}}</a>
+                <li ng-repeat="item in routes" ng-class="{'active': $index==selectedItem}">
+                    <a href="#{{item.originalPath}}"><i class="{{item.icon}}"></i>&nbsp;&nbsp;{{item.name}}</a>
                 </li>
             </ul>
         </div>

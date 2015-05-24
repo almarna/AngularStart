@@ -7,7 +7,7 @@ interface IDemo2Scope extends ng.IScope
 
 class Demo2Controller
 {
-    private myvar: string;
+    private lastContact: string;
 
     constructor(private $scope: IDemo2Scope)
     {
@@ -18,8 +18,9 @@ class Demo2Controller
     private addcontactToList()
     {
         this.$scope.contacts.push(this.$scope.newContact);
+        this.lastContact = this.$scope.newContact;
+
         this.$scope.newContact = "";
 
-        this.myvar = "";
     }
 }

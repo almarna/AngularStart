@@ -15,7 +15,7 @@
     <RootNamespace>AngularStart</RootNamespace>
     <AssemblyName>AngularStart</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Api\data.txt" />
+    <Content Include="App\Directives\MenuDirective2.html" />
     <Content Include="App\Directives\PersonInfoDirective.html" />
     <Content Include="App\Pages\Bootstrap\BootstrapView.html" />
     <Content Include="Content\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.svg" />
@@ -305,7 +306,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60662</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:60662/</IISUrl>
+          <IISUrl>http://localhost/AngularStart</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

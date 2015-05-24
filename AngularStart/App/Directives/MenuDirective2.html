@@ -1,0 +1,22 @@
+﻿<div>
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+
+            <div class="navbar-brand">
+
+                <a href="#" ng-transclude onclick="window.location.reload(true);"></a>
+                  -  {{routes[selectedItem].name}}
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+
+                <div ng-repeat="item in routes" class="col-xs-2 col-md-1" ng-class="{'active': $index==selectedItem}">
+                    <a style="font-size: 2.4em" href="#{{item.originalPath}}" title="{{item.name}}"><i class="{{item.icon}}"></i></a>
+                </div>
+
+        </div>
+    </div>
+</div>

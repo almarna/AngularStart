@@ -7,8 +7,8 @@ var Demo2Controller = (function () {
     }
     Demo2Controller.prototype.addcontactToList = function () {
         this.$scope.contacts.push(this.$scope.newContact);
+        this.lastContact = this.$scope.newContact;
         this.$scope.newContact = "";
-        this.myvar = "";
     };
     return Demo2Controller;
 })();
